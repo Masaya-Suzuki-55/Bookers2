@@ -1,0 +1,36 @@
+
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+        <h1>Editing Book</h1>
+            <!--バリデーションエラー-->
+              <% if @book.errors.any? %>
+              <h3 class="error"><%= @book.errors.count %> error prohibited this obj from being saved:</h3>
+                <ul>
+                <% @book.errors.full_messages.each do |message| %>
+                  <li class="error error_messages"><%= message %></li>
+                <% end %>
+                </ul>
+              <% end %>
+            <!---->
+            <!--入力フォームー-->
+            <%= form_for(@book, url: book_path(@book.id)) do |f| %>
+              <h4>Title</h4>
+                <%= f.text_field :title, class:"form-control book_title" %>
+              <h4>Opinion</h4>
+                <%= f.text_area :body, class:"form-control book_body" %>
+              <nav>
+                <%= f.submit 'Update Book', class:"btn btn-success" %>
+            <% end %>
+            <!---->
+            <div>  　
+              <%= link_to "show",book_path(@book.id)%>
+              |
+              <%= link_to "Back",books_path %>
+            </div>  
+        
+      </div>     
+    </div>       
+  </div>     
