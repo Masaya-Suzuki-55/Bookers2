@@ -1,4 +1,15 @@
-
+<div>
+ <!--バリデーションエラー-->
+ <% if @book.errors.any? %>
+  <h3 class="error"><%= @book.errors.count %> error prohibited this obj from being saved:</h3>
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+    <li class="error error_messages"><%= message %></li>
+    <% end %>
+  </ul>
+    <% end %>
+<!---->
+</div>
 <div class="container px-5 px-sm-0">
 	<div class="row">
 		
