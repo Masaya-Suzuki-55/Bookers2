@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   	@book = Book.new
     @users = User.all
     @user = current_user
-    
+
   end
 
   def create
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
       render action: :edit
     end
   end
- 
+
   private
     def correct_user
         @user = User.find(params[:id])
@@ -46,10 +46,10 @@ class UsersController < ApplicationController
         redirect_to user_path(current_user.id)
         end
     end
-    
+
     def user_params
      params.require(:user).permit(:name ,:profile_image,:introduction)
     end
-  
-  
+
+
 end
