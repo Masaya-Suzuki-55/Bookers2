@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-       <h2>User info</h2>
+        <h2>User info</h2>
             <!--バリデーションエラー-->
               <% if @user.errors.any? %>
                 <h3 class="error"><%= @user.errors.count %> error prohibited this obj from being saved:</h3>
@@ -14,7 +14,7 @@
               <% end %>
             <!---->
             <!--入力フォームー-->
-              <%= form_with model: @user do |f| %>
+              <%= form_with model: @user, local: true do |f| %>
                 <div class="form-group">
                   <label>Name</label><br>
                     <%= f.text_field :name, autofocus: true, class:"form-control name" %></p>
